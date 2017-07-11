@@ -1,0 +1,18 @@
+extends base 
+
+block vars 
+  title = 'Registration' 
+
+block body 
+  if error 
+    p= error 
+  h1 Create an Account 
+  //- the default method for forms is post 
+  form(method=post) 
+    span Email: 
+    input(type='text' name='email' required)
+    br  
+    span Password: 
+    input(type='password' name='password' required)
+    br
+    input(type='submit' value='register')

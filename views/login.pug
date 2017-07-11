@@ -1,0 +1,16 @@
+extends base 
+
+block vars 
+  title = 'Login' 
+
+block body 
+  h1 Login In To Your Account 
+  //- the default method for forms is post 
+  form(method=post) 
+    span Email: 
+    input(type='text' name='email' required)
+    br  
+    span Password: 
+    input(type='password' name='password' required)
+    br
+    input(type='submit' value='Login')
