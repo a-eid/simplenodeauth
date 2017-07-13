@@ -34,7 +34,7 @@ app.use(bodyParser.json())
 app.set('view engine', 'pug')
 
 app.use(cookieParser())
-app.use(csrf())
+app.use(csrf({cookie: true }))
 app.use(Router)
 
 // app.get('/auth' , (req ,res) => {
