@@ -1,28 +1,19 @@
 import express from 'express'
 const Router = express.Router()
+import {
+  home, register, login, logout, secret,
+  create, authenticate
+} from './controller'
 
 
-Router.get('/', (req, res) => {
-  res.render('index')
-})
+// serving pages 
+Router.get('/', home)
+Router.get('/register', register)
+Router.get('/login', login)
+Router.get('/secret', secret)
+Router.get('/logout', logout)
 
-Router.get('/register', (req, res) => {
-  res.render('register')
-})
-
-Router.get('/login', (req, res) => {
-  res.render('login')
-})
-
-Router.get('/secret', (req, res) => {
-  res.render('secret')
-})
-
-Router.get('/logout', (req, res) => {
-  // todo log out
-  res.redirect('/')
-})
-
-
+Router.post('/register', create)
+Router.post('/login', authenticate)
 
 export default Router

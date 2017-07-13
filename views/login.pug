@@ -1,12 +1,16 @@
 extends base 
-
 block vars 
-  title = 'Login' 
+  - var title = 'Login' 
 
 block body 
   h1 Login In To Your Account 
-  //- the default method for forms is post 
-  form(method=post) 
+  
+  if errors
+    ul
+      each err in errors 
+        li= err
+
+  form(method='POST') 
     span Email: 
     input(type='text' name='email' required)
     br  

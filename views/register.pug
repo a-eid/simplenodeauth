@@ -1,18 +1,20 @@
 extends base 
 
 block vars 
-  title = 'Registration' 
+  - var title = 'Registration' 
 
 block body 
-  if error 
-    p= error 
+  if errors
+    ul
+      each err in errors 
+        li= err
   h1 Create an Account 
   //- the default method for forms is post 
-  form(method=post) 
+  form(method='POST') 
     span Email: 
-    input(type='text' name='email' required)
+    input(type='text' name='email' )
     br  
     span Password: 
-    input(type='password' name='password' required)
+    input(type='password' name='password' )
     br
     input(type='submit' value='register')
