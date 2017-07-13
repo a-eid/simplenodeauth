@@ -2,10 +2,13 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import session from 'express-session'
-const MongoStore = require('connect-mongo')(session);
+import cookieParser from 'cookie-parser'
+import mongoStore from 'connect-mongo'
+import csrf from 'csurf'
 
+
+const MongoStore = mongoStore(session);
 import Router from './router'
-
 const app = express()
 
 app.locals.pretty = true
@@ -30,6 +33,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.set('view engine', 'pug')
 
+app.use(cookieParser())
+app.use(csrf())
 app.use(Router)
 
 // app.get('/auth' , (req ,res) => {

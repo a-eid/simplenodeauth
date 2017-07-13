@@ -11,6 +11,7 @@ block body
   h1 Create an Account 
   //- the default method for forms is post 
   form(method='POST') 
+    input(name="_csrf" value=csrfToken type="hidden")
     span Email: 
     input(type='text' name='email' )
     br  

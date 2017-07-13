@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs'
 
+
 import User from './userModel'
 import { getMongooseErrors } from './helper'
 var salt = bcrypt.genSaltSync(10);
@@ -9,11 +10,15 @@ export const home = (req, res) => {
 }
 
 export const register = (req, res) => {
-   res.render('register')
+   res.render('register' , {
+      csrfToken: req.csrfToken() 
+   })
 }
 
 export const login = (req, res) => {
-   res.render('login')
+   res.render('login', {
+      csrfToken: req.csrfToken() 
+   })
 }
 
 export const logout = (req, res) => {

@@ -11,6 +11,7 @@ block body
         li= err
 
   form(method='POST') 
+    input(name="_csrf" value=csrfToken type="hidden")
     span Email: 
     input(type='text' name='email' required)
     br  
